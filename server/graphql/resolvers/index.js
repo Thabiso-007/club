@@ -39,7 +39,7 @@ const updateClub = {
         return update
     }
 }
-// 1:11:01
+
 const RootMutation = new GraphQLObjectType({
     name: "RootMutation",
     fields: { 
