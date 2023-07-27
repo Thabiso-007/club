@@ -1,12 +1,24 @@
-const { GraphQLObjectType, GraphQLList } = require('graphql')
+const { GraphQLObjectType, GraphQLList, GraphQLID } = require('graphql')
 const { ClubType } = require('../types') 
 const Club = require('../../models/ClubModel')
 
+// Get all clubs
 const clubs = {
     name: "Clubs",
     type: new GraphQLList(ClubType),
     resolve: async (parent, args) => {
-         const club = Club.find()
+        const clubs = await Club.find()
+        return clubs
+    }
+}
+
+// Get a single club
+const singleclub = {
+    name: "singleClub",
+    type: ClubType,
+    args: {id: {type: GraphQLID}},
+    resolve: async (parent, args) => {
+        const club = await Club.findById(args.id)
         return club
     }
 }
@@ -14,10 +26,9 @@ const clubs = {
 const RootQuery = new GraphQLObjectType({
     name: "RootQuery",
     fields: {
-        clubs
+        clubs,
+        singleclub
     }
 })
-
-// 55:39
 
 module.exports = RootQuery
