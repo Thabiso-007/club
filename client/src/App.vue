@@ -1,8 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/clubs">Clubs</router-link>
-  </nav>
   <router-view/>
 </template>
 
@@ -25,5 +21,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
+}
+
+@media only screen and (max-width: 865px) {
+  body {
+    height: 150vh;
+  }
 }
 </style>
