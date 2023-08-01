@@ -13,7 +13,10 @@
               <label for="league" class="form-label">League</label>
               <input type="text" class="form-control" id="league">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex gap-5 align-items-center justify-content-center">
+              <button type="submit" class="btn btn-primary w-50">Submit</button>
+              <router-link to="/clubs" class="btn btn-primary w-50">View clubs</router-link>
+            </div>
           </form>
         </div>
       </div>
@@ -27,3 +30,9 @@ export default {
   
 }
 </script>
+
+<style scoped>
+.link {
+
+}
+</style>
