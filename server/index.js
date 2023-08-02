@@ -1,7 +1,7 @@
 const express = require('express')
 const { graphqlHTTP } = require('express-graphql')
 const graphql = require('graphql')
-
+const cors = require('cors')
 require('colors')
 require('dotenv').config()
 
@@ -14,8 +14,10 @@ const port = server_port || 5000
 const GraphSchema = graphql.GraphQLSchema
 
 const app = express()
-dbConnection()
 
+dbConnection()
+app.use(cors()
+)
 app.use('/graphql', graphqlHTTP({
     schema: new GraphSchema({ query: RootQuery, mutation: RootMutation }),
     graphiql: true
