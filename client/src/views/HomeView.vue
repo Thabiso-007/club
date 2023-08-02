@@ -14,7 +14,7 @@
               <input type="text" class="form-control" id="league">
             </div>
             <div class="d-flex gap-5 align-items-center justify-content-center">
-              <button type="submit" class="btn btn-primary w-50">Submit</button>
+              <button type="submit" class="btn btn-primary w-50">Add</button>
               <router-link to="/clubs" class="btn btn-primary w-50">View clubs</router-link>
             </div>
           </form>
@@ -30,9 +30,3 @@ export default {
   
 }
 </script>
-
-<style scoped>
-.link {
-
-}
-</style>
