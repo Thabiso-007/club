@@ -1,28 +1,39 @@
 <template>
-  <div class="container d-flex align-items-center justify-content-center">
-    <div class="w100 bg-white p-3 mt-5 mb-5">
-      <div class="d-flex justify-content-center mb-3">
-        <router-link to="/" class="btn btn-primary w-50">Add club</router-link>
-      </div>
-      <ul class="w100 align-items-center justify-content-center">
-        <li 
-          class="gap-2 list"
-          v-for="(item, i) in state.clubList"
-          v-bind:key="i"
+  <div>
+    <div class="">
+      <img class="uefa" src="@/assets/uefa.png" alt="">
+    </div>
+    <div class="container d-flex align-items-center justify-content-center">
+      <div class="w100 bg-white p-3 mt-5 mb-5">
+        <div class="d-flex justify-content-center mb-3">
+          <router-link to="/" class="btn btn-primary w-50">Add club</router-link>
+        </div>
+        <ul class="w100 align-items-center justify-content-center">
+          <li 
+            class="gap-2 list"
+            v-for="(item, i) in state.clubList"
+            v-bind:key="i"
           >
-          <div class="wrapper justify-content-between">
-            <div class="">
-              <h2 class="league">{{ item.league }}</h2>
-              <h3 class="club">{{ item.name }}</h3>
+            <div class="wrapper justify-content-between">
+              <div>
+                <div class="d-flex gap-2">
+                  <img alt="Vue logo" class="logo" src="@/icons/europe.svg" width="20" height="20"/>
+                  <h2 class="league">{{ item.league }}</h2>
+                </div>
+                <div class="d-flex gap-2">
+                  <img alt="Vue logo" class="logo" src="@/icons/club.svg" width="20" height="20"/>
+                  <h3 class="club">{{ item.name }}</h3>
+                </div>
+              </div>
+              <div class="btn">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-primary mt-2">Update</button>
+              </div>
             </div>
-            <div class="btn">
-              <button type="submit" class="btn btn-danger">Delete</button>
-              <button type="submit" class="btn btn-primary mt-2">Update</button>
-            </div>
-          </div>
-          <hr />
-        </li>
-      </ul>
+            <hr />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -91,5 +102,17 @@ export default {
 .club {
   font-size: 16px;
   font-weight: 700;
+}
+
+.image-league {
+  width: 100px;
+}
+
+.uefa {
+  width: 100px;
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
