@@ -26,7 +26,11 @@
                 </div>
               </div>
               <div class="btn">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button 
+                  type="submit" 
+                  class="btn btn-danger"
+                  v-on:click="() => deleteClubHandler(e, item.id)"
+                >Delete</button>
                 <button type="submit" class="btn btn-primary mt-2">Update</button>
               </div>
             </div>
@@ -41,6 +45,7 @@
 <script>
 import { reactive, onMounted } from 'vue'
 import { getClubs } from '../graphql/queries'
+import { deleteClub } from '../graphql/mutations'
 
 export default {
   setup(props) {
@@ -59,8 +64,16 @@ export default {
       state.clubList = getAllClubs
     })
 
+    const deleteClubHandler = async (e, itemId) => {
+      console.log(itemId)
+      const deletedClub = await deleteClub(state, itemId)
+      const getAllClubs = await getClubs(state)
+      state.clubList = getAllClubs
+    }
+
     return {
-      state
+      state,
+      deleteClubHandler
     }
   },
 };

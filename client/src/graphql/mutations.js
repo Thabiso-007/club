@@ -26,3 +26,29 @@ export const addClub = async (state) => {
     state.isLoading = false
     return jsonRes.data.clubs
 }
+
+// Delete club 
+export const deleteClub = async (state, id) => {
+    state.isLoading = true
+    const options = { 
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // Add club 
+            query: `
+                mutation {
+                    deleteClub(id: "${id}") {
+                        name
+                    }
+                }
+            `
+        })
+    } 
+    // 2:19:23
+    const response = await fetch(url, options)
+    console.log("Delete item: ", response)
+    state.isLoading = false
+    // return jsonRes.data.clubs
+}
