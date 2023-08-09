@@ -28,7 +28,7 @@
                 >
               </div>
               <div class="d-flex gap-5 align-items-center justify-content-center">
-                <button v-on:click="submitHandler" type="submit" class="btn btn-primary w-50">Add</button>
+                <button v-on:click="submitHandler" type="submit" class="btn btn-primary text-align-center w-50">Add club</button>
                 <router-link to="/clubs" class="btn btn-primary w-50">View clubs</router-link>
               </div>
             </form>
