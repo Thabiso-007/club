@@ -18,18 +18,18 @@
               v-bind:key="i"
             >
               <div class="wrapper justify-content-between">
-                <div>
-                  <div class="d-flex gap-2">
-                    <img alt="Vue logo" class="logo" src="@/icons/europe.svg" width="20" height="20"/>
-                    <h2 class="league">{{ item.league }}</h2>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <img alt="Vue logo" class="logo" src="@/icons/club.svg" width="20" height="20"/>
-                    <router-link :to="{name: 'club-detail', params: { id: item.id }}">
+                <router-link class="link" :to="{name: 'club-detail', params: { id: item.id }}">
+                  <div>
+                    <div class="d-flex gap-2">
+                      <img alt="Vue logo" class="logo" src="@/icons/europe.svg" width="20" height="20"/>
+                      <h2 class="league">{{ item.league }}</h2>
+                    </div>
+                    <div class="d-flex gap-2">
+                      <img alt="Vue logo" class="logo" src="@/icons/club.svg" width="20" height="20"/>
                       <h3 class="club">{{ item.name }}</h3>
-                    </router-link>
+                    </div>
                   </div>
-                </div>
+                </router-link>
                 <div class="btn">
                   <button 
                     type="submit" 
@@ -88,23 +88,20 @@ export default {
       state.clubList = getAllClubs
     }
 
-    const updateClubHandler = async (e, id) => {
-       const selectedClub = state.clubList.filter((club, i) => club.id === id)[0]
-       state.clubs.name = selectedClub.name
-       state.clubs.league = selectedClub.league
-       state.update = true
-    }
-
     return {
       state,
       deleteClubHandler,
-      updateClubHandler,
     }
   },
 };
 </script>
 
-<style>
+<style scoped>
+.link {
+  text-decoration: none;
+  color: black;
+}
+
 .w100 {
   width: 100%;
 }

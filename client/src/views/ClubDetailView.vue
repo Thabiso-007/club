@@ -79,7 +79,7 @@ export default {
         const newClub = await addClub(state)
        }
     }
-    
+    // 2:23:09
     return {
       state,
       updateClubHandler
