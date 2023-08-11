@@ -9,4 +9,16 @@ const ClubType = new GraphQLObjectType({
     })
 })
 
-module.exports = { ClubType }
+const LeagueType = new GraphQLObjectType({
+    name: "LeagueType",
+    fields: () => ({
+        id: {type: GraphQLID },
+        country: { type: GraphQLString },
+        league: { type: GraphQLString }
+    })
+})
+
+module.exports = { 
+    ClubType,
+    LeagueType 
+}
