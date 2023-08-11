@@ -1,6 +1,8 @@
 const { GraphQLObjectType, GraphQLList, GraphQLID } = require('graphql')
-const { ClubType } = require('../types') 
+
+const { ClubType, LeagueType } = require('../types') 
 const Club = require('../../models/ClubModel')
+const League = require('../../models/LeagueModel')
 
 // Get all clubs
 const clubs = {
@@ -23,11 +25,24 @@ const singleclub = {
     }
 }
 
+/** Admin section */
+
+// Get all clubs
+const countries = {
+    name: "Countries",
+    type: new GraphQLList(LeagueType),
+    resolve: async (parent, args) => {
+        const countries = await League.find()
+        return countries
+    }
+}
+
 const RootQuery = new GraphQLObjectType({
     name: "RootQuery",
     fields: {
         clubs,
-        singleclub
+        singleclub,
+        countries
     }
 })
 
