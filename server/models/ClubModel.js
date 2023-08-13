@@ -6,10 +6,10 @@ const clubSchema = new mongoose.Schema({
         required: true
     },
     league: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Club"
     }
-})
+}, { timestamps: true })
 
-const Club = mongoose.model('Club', clubSchema)
+const  Club = mongoose.model('Club', clubSchema)
 module.exports = Club

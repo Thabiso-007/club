@@ -1,14 +1,19 @@
 const mongoose = require('mongoose')
 
-const clubSchema = new mongoose.Schema({
+const playerSchema = new mongoose.Schema({
     name: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Club"
     },
     players: [{
-        type: String,
+       player: {
+            type: String
+        },
+       number: {
+            type: String
+        }
     }]
-})
+}, { timestamps: true })
 
-const Club = mongoose.model('Club', clubSchema)
-module.exports = Club
+const Player = mongoose.model('Player', playerSchema)
+module.exports = Player

@@ -9,7 +9,7 @@ const leagueSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-})
+}, { timestamps: true })
 
 const League = mongoose.model('Country', leagueSchema)
 module.exports = League
