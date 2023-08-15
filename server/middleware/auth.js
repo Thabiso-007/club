@@ -11,5 +11,5 @@ const authenticate = async (req, res, next) => {
         throw new Error(error)
     }
 }
-// 1:01:55
+
 module.exports = { authenticate }
