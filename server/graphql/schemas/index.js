@@ -3,6 +3,7 @@ const { GraphQLObjectType } = require('graphql')
 const { clubs, singleclub } = require('./club')
 const { countries } = require('./leagues')
 const { allPlayer } = require('./players')
+const { users } = require('./admin')
 
 const RootQuery = new GraphQLObjectType({
     name: "RootQuery",
@@ -10,7 +11,8 @@ const RootQuery = new GraphQLObjectType({
         clubs,
         singleclub,
         countries,
-        allPlayer
+        allPlayer,
+        users
     }
 })
 
