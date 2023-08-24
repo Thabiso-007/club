@@ -2,7 +2,6 @@ const { GraphQLObjectType } = require('graphql')
 
 const { addCountry, updateCountry, deleteCountry } = require('./league')
 const { addClub, deleteClub, updateClub } = require('./club')
-const { register } = require('./admin')
 
 const RootMutation = new GraphQLObjectType({
     name: "RootMutation",
@@ -13,7 +12,6 @@ const RootMutation = new GraphQLObjectType({
         addCountry,
         updateCountry,
         deleteCountry,
-        register
     }
 })
 

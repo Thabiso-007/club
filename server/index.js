@@ -9,7 +9,6 @@ const { server_port } = require('./config/env')
 const dbConnection = require('./config/connection/db')
 const RootQuery = require('./graphql/schemas')
 const RootMutation = require('./graphql/resolvers/index')
-const { authenticate } = require('./middleware/auth')
 
 const port = server_port || 5000
 const GraphSchema = graphql.GraphQLSchema

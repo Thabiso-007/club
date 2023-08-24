@@ -1,17 +1,5 @@
 const { GraphQLString, GraphQLID, GraphQLObjectType } = require('graphql')
 
-const User = require('../models/UserModel')
-
-const UserType = new GraphQLObjectType({
-    name: "UserType",
-    fields: () => ({
-        id: { type: GraphQLID },
-        username: { type: GraphQLString },
-        email: { type: GraphQLString },
-        displayName: { type: GraphQLString }
-    })
-})
-
 const ClubType = new GraphQLObjectType({
     name: "ClubType",
     fields: () => ({
@@ -36,18 +24,11 @@ const LeagueType = new GraphQLObjectType({
         id: { type: GraphQLID },
         country: { type: GraphQLString },
         league: { type: GraphQLString },
-        admin: {
-            type: UserType,
-            resolve: (parent, args) => {
-                return User.findById(parent.adminId)
-            }
-        }
     }) 
 })
 
 module.exports = { 
     ClubType,
     LeagueType,
-    UserType,
     PlayerType 
 }
